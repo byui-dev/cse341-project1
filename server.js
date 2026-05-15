@@ -5,6 +5,7 @@ const app = express();
 
 const db = require('./routes/data/database');
 
+
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
@@ -16,6 +17,10 @@ db.initDb((err, database) => {
           console.error('Failed to connect to the database', err);
           process.exit(1);
      }
+
+     database.listCollections().toArray().then(cols => {
+       console.log('Collections:', cols);
+     });     
  
      app.listen(PORT, () => { console.log(` Server is running on port ${PORT}`);
   });   
