@@ -4,6 +4,7 @@ require('dotenv').config();
 const app = express();
 
 const db = require('./routes/data/database');
+const bodyParser = require('body-parser');
 
 
 const PORT = process.env.PORT || 3000;
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 app.use('/', require('./routes'));
+app.use(bodyParser.json());
 
 db.initDb((err, database) => {
      if (err) {
