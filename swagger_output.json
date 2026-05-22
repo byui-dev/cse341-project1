@@ -14,11 +14,21 @@
   "paths": {
     "/": {
       "get": {
+        "tags": [
+          "Hello World"
+        ],
         "description": "",
         "responses": {
           "200": {
             "description": "OK"
-          },
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
           "default": {
             "description": ""
           }
